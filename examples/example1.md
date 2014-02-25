@@ -4,8 +4,6 @@ Example 1: As Simple As It Gets
 ===============================
 It is possible to solve a simple diffusion problem with MOOSE without adding any source code, all that is necessary is an input file. This input file must contain a minimum set of input file blocks: Mesh, Variables, Kernels, BCs, Executioner, and Output.
 
-<iframe src="https://github.com/idaholab/moose-page/raw/gh-pages/README.md" />
-
 Mesh Block
 ----------
 First, you need a mesh. Here a mesh if being read from an ExodusII file named mug.e.
