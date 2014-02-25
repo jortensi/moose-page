@@ -1,4 +1,4 @@
-# YourPageTitle
+# MOOSE
 
 [Page1](page1.md)
 [Page2](page2.md)
@@ -17,4 +17,4 @@
 [gimmick:ThemeChooser](Change theme)
 
 <!-- show a fork me on github ribbon -->
-[gimmick:forkmeongithub](http://github.com/Dynalon/mdwiki-seed/)
+[gimmick:forkmeongithub (color: 'darkblue')](http://github.com/idaholab/moose-page/)
