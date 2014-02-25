@@ -1,43 +1,51 @@
-# SubPage 1
+Example 1: As Simple As It Gets
+===============================
+It is possible to solve a simple diffusion problem with MOOSE without adding any source code, all that is necessary is an input file (\ref ex01_input). This input file must contain a minimum set of input file blocks: Mesh, Variables, Kernels, BCs, Executioner, and Output.
 
-## Section 1
+Mesh Block
+----------
+First, you need a mesh. Here a mesh if being read from an ExodusII file named mug.e.
+```
+[Mesh]
+  file = mug.e
+[]
+```
 
-![](//placekitten.com/g/450/200)
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et massa vel sem mollis tincidunt. Suspendisse potenti. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque pulvinar lacinia magna, eu mollis ipsum iaculis sed. Ut at dui ligula. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit amet rhoncus neque.
-Vestibulum malesuada blandit quam sed cursus. Proin ullamcorper elit ut magna varius, at hendrerit nulla ornare. Nam ut augue ornare, molestie felis non, fringilla odio. Vivamus vel gravida elit, eu laoreet libero. Etiam id elit non nisl accumsan scelerisque. Nulla fermentum molestie dolor, quis pretium urna fringilla viverra. Donec fringilla leo tincidunt leo hendrerit pellentesque.
-Duis eget sodales augue. Maecenas quis eleifend dolor. Fusce dictum purus at est facilisis, sit amet viverra leo bibendum. Praesent egestas mi id blandit tempus. Nunc sit amet consequat felis, in pharetra elit. Sed at venenatis mi. Aliquam est urna, cursus et fringilla ut, tristique ac tellus.
-Nullam varius ac ligula et condimentum. Cras commodo et orci in aliquam. Fusce in arcu nec elit tincidunt ultricies a eget nulla. Aliquam ullamcorper placerat mattis. Fusce non interdum risus, in pellentesque libero. Aliquam erat volutpat. Praesent tempus, neque ut malesuada semper, ante lacus bibendum libero, sit amet pulvinar nulla urna in nisl. Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse lacinia leo sit amet nunc semper viverra.
+Variables Block
+---------------
+The problem is going to solve for a variable that we arbitrarily are naming 'diffused'. This variable will be solved for using linear Lagrange finite elements.
+```
+[Variables]
+  active = 'diffused'
+  [./diffused]
+    order = FIRST
+    family = LAGRANGE
+  [../]
+[]
+```
 
-Nullam varius ac ligula et condimentum. Cras commodo et orci in aliquam. Fusce in arcu nec elit tincidunt ultricies a eget nulla. Aliquam ullamcorper placerat mattis. Fusce non interdum risus, in pellentesque libero. Aliquam erat volutpat. Praesent tempus, neque ut malesuada semper, ante lacus bibendum libero, sit amet pulvinar nulla urna in nisl. Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse lacinia leo sit amet nunc semper viverra.
+Kernels Block
+-------------
+The equation being solve for this example is a diffusion problem, with the weak form defined as
+$$ (-\nabla \cdot \nabla u, \psi_i) = 0. $$
+A Kernel for this equation already exists within MOOSE: Diffusion. Thus, simply create a Kernel block to utilize this object (see \ref kernels Section for additional details). This block specifies the type to be the aforementioned built-in Diffusion object and the variable to be the 'diffused' variable created in the \ref ex01_variables.
+```
+[Kernels]
+  active = 'diff'
+  [./diff]
+    type = Diffusion
+    variable = diffused
+  [../]
+[]
+```
 
-## Section 2
+Program Execution
+-----------------
+```
+make -j8
+./ex01-opt -i ex01.i
+```
 
-![](//placekitten.com/g/350/200)
-![](//placekitten.com/g/350/200)
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et massa vel sem mollis tincidunt. Suspendisse potenti. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque pulvinar lacinia magna, eu mollis ipsum iaculis sed. Ut at dui ligula. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit amet rhoncus neque.
-
-Vestibulum malesuada blandit quam sed cursus. Proin ullamcorper elit ut magna varius, at hendrerit nulla ornare. Nam ut augue ornare, molestie felis non, fringilla odio. Vivamus vel gravida elit, eu laoreet libero. Etiam id elit non nisl accumsan scelerisque. Nulla fermentum molestie dolor, quis pretium urna fringilla viverra. Donec fringilla leo tincidunt leo hendrerit pellentesque.
-
-- - - -
-Duis eget sodales augue. Maecenas quis eleifend dolor. Fusce dictum purus at est facilisis, sit amet viverra leo bibendum. Praesent egestas mi id blandit tempus. Nunc sit amet consequat felis, in pharetra elit. Sed at venenatis mi. Aliquam est urna, cursus et fringilla ut, tristique ac tellus.
-Nullam varius ac ligula et condimentum. Cras commodo et orci in aliquam. Fusce in arcu nec elit tincidunt ultricies a eget nulla. Aliquam ullamcorper placerat mattis. Fusce non interdum risus, in pellentesque libero. Aliquam erat volutpat. Praesent tempus, neque ut malesuada semper, ante lacus bibendum libero, sit amet pulvinar nulla urna in nisl. Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse lacinia leo sit amet nunc semper viverra.
-![](//placekitten.com/g/300/180)
-
-Nullam varius ac ligula et condimentum. Cras commodo et orci in aliquam. Fusce in arcu nec elit tincidunt ultricies a eget nulla. Aliquam ullamcorper placerat mattis. Fusce non interdum risus, in pellentesque libero. Aliquam erat volutpat. Praesent tempus, neque ut malesuada semper, ante lacus bibendum libero, sit amet pulvinar nulla urna in nisl. Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse lacinia leo sit amet nunc semper viverra.
-
-## Section 3
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et massa vel sem mollis tincidunt. Suspendisse potenti. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque pulvinar lacinia magna, eu mollis ipsum iaculis sed. Ut at dui ligula. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit amet rhoncus neque.
-
-Vestibulum malesuada blandit quam sed cursus. Proin ullamcorper elit ut magna varius, at hendrerit nulla ornare. Nam ut augue ornare, molestie felis non, fringilla odio. Vivamus vel gravida elit, eu laoreet libero. Etiam id elit non nisl accumsan scelerisque. Nulla fermentum molestie dolor, quis pretium urna fringilla viverra. Donec fringilla leo tincidunt leo hendrerit pellentesque.
-
-- - - -
-Duis eget sodales augue. Maecenas quis eleifend dolor. Fusce dictum purus at est facilisis, sit amet viverra leo bibendum. Praesent egestas mi id blandit tempus. Nunc sit amet consequat felis, in pharetra elit. Sed at venenatis mi. Aliquam est urna, cursus et fringilla ut, tristique ac tellus.
-Nullam varius ac ligula et condimentum. Cras commodo et orci in aliquam. Fusce in arcu nec elit tincidunt ultricies a eget nulla. Aliquam ullamcorper placerat mattis. Fusce non interdum risus, in pellentesque libero. Aliquam erat volutpat. Praesent tempus, neque ut malesuada semper, ante lacus bibendum libero, sit amet pulvinar nulla urna in nisl. Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse lacinia leo sit amet nunc semper viverra.
-
-Nullam varius ac ligula et condimentum. Cras commodo et orci in aliquam. Fusce in arcu nec elit tincidunt ultricies a eget nulla. Aliquam ullamcorper placerat mattis. Fusce non interdum risus, in pellentesque libero. Aliquam erat volutpat. Praesent tempus, neque ut malesuada semper, ante lacus bibendum libero, sit amet pulvinar nulla urna in nisl. Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse lacinia leo sit amet nunc semper viverra.
-
-![](//placekitten.com/g/350/200)
-![](//placekitten.com/g/350/200)
-![](//placekitten.com/g/350/200)
-
+Input File: ex01.i
+------------------
+Include entire file here
