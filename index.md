@@ -4,9 +4,8 @@ The Multiphysics Object-Oriented Simulation Environment (MOOSE) provides a high-
 
 Getting Started
 ---------------
-Fork Stork:
-<iframe src="http://ghbtns.com/github-btn.html?user=idaholab&repo=stork&type=fork"
-  allowtransparency="true" frameborder="0" scrolling="0" width="62" height="20"></iframe>
+1. Fork Stork: <iframe src="http://ghbtns.com/github-btn.html?user=idaholab&repo=stork&type=fork" allowtransparency="true" frameborder="0" scrolling="0" width="62" height="30"></iframe>
+1. Rename your repository
 
 
 Real-World Results

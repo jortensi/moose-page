@@ -1,14 +1,14 @@
 # MOOSE
 
-[Page1](page1.md)
-[Page2](page2.md)
-[Page3](page3.md)
+[GitHub](https://github.com/idaholab)
+[User Manual](manual.md)
+[Doxygen](https://hpcsc.inl.gov/ssl/MOOSE/docs/classes.html)
 
-[SubMenuName]()
+[Examples]()
 
-  * [SubPage1](subpage/page1.md)
-  * [SubPage2](subpage/page2.md)
-  * [SubPage3](subpage/page3.md)
+  * [Example 1: Basic Input](examples/example1.md)
+  * [Example 2](examples/example2.md)
+  * [Example 3](examples/example3.md)
 
 <!-- set a default theme -->
 [gimmick:theme (inverse: false)](bootstrap)
