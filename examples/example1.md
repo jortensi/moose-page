@@ -7,6 +7,10 @@ It is possible to solve a simple diffusion problem with MOOSE without adding any
 Mesh Block
 ----------
 First, you need a mesh. Here a mesh if being read from an ExodusII file named mug.e.
+
+<script src="scripts/hello.js"></script>
+
+
 ```
 [Mesh]
   file = mug.e
