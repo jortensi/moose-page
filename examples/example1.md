@@ -8,8 +8,10 @@ Mesh Block
 ----------
 First, you need a mesh. Here a mesh if being read from an ExodusII file named mug.e.
 
+<--!
 <script src="../js/hello.js"></script>
 <script>include()</script>
+-->
 
 ```
 [Mesh]
