@@ -17,4 +17,4 @@
 [gimmick:ThemeChooser](Change theme)
 
 <!-- show a fork me on github ribbon -->
-[gimmick:forkmeongithub (color: 'darkblue')](http://github.com/idaholab/moose-page/)
+[gimmick:forkmeongithub (color: 'red')](http://github.com/idaholab/moose-page/)
