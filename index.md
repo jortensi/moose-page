@@ -6,10 +6,9 @@ The Multiphysics Object-Oriented Simulation Environment (MOOSE) provides a high-
 $(document).ready(function(){
  $("#msgid").html("Hello from MOOSE");
 });
- 
-<div id="msgid"></div>
-
 </script>
+
+<div id="msgid"></div>
 
 Getting Started
 ---------------
