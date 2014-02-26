@@ -10,6 +10,7 @@ $.get('test/ex01.i', function(data) {
         for (var i = 0, len = lines.length; i < len; i++){
 	var l = $.trim($(lines[i]).text());
 	if ( l == '[Variables]' ) {
+	  alert(l)
 	  output += l
 	}  
 	} 
