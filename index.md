@@ -8,7 +8,7 @@ $(document).ready(function(){
 });
 </script>
 
-<div id="msgid"></div>
+<pre><code id="msgid"></code></pre>
 
 Getting Started
 ---------------
