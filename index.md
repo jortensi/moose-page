@@ -4,7 +4,7 @@ The Multiphysics Object-Oriented Simulation Environment (MOOSE) provides a high-
 
 <script type="text/javascript">
 $.get('test/ex01.i', function(data) {
-        alert(data);
+        $("#msgid").text(data);;
     }, "text");
 </script>
 
@@ -25,3 +25,5 @@ Real-World Results
 The MOOSE simulation platform at has demonstrated the possibility of realistic modeling a full-core commercial nuclear reactor over multiple operating cycles. This simulation demonstrates the ability to couple several models together to simulate numerous physical properties on multiple size and time scales.
 
 [](http://www.youtube.com/watch?v=4xTfQxpGAI4)
+
+
