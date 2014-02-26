@@ -2,25 +2,6 @@ MOOSE: Multiphysics Object Oriented Simulation Environment
 ==========================================================
 The Multiphysics Object-Oriented Simulation Environment (MOOSE) provides a high-level interface to some of the most sophisticated nonlinear solver technology on the planet. MOOSE provides a straightforward API that aligns well with the real-world problems scientists and engineers need to tackle. Every detail about how an engineer interacts with MOOSE has been thought through, from the installation process through running your simulation on state of the art supercomputers, the MOOSE system will accelerate your research.
 
-<script type="text/javascript">
-$.get('test/ex01.i', function(data) {
-        $("#msgid").text(data);
-        var lines = data.split('\n')
-        var output = '';
-        for (var i = 0, len = lines.length; i < len; i++){
-	var l = $.trim($(lines[i]).text());
-	if ( l == '[Variables]' ) {
-	  alert(l)
-	  output += l
-	}  
-	} 
-        $("#varid").text(output) 	
-    }, "text");
-</script>
-
-<pre><code id="varid"></code></pre>
-<pre><code id="msgid"></code></pre>
-
 Getting Started
 ---------------
 1. Fork Stork

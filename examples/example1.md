@@ -1,5 +1,21 @@
 [gimmick: math]()
 
+<script type="text/javascript">
+$.get('test/ex01.i', function(data) {
+        $("#msgid").text(data);
+        var lines = data.split('\n')
+        var output = '';
+        for (var i = 0, len = lines.length; i < len; i++){
+	var l = $.trim($(lines[i]).text());
+	if ( l == '[Variables]' ) {
+	  alert(l)
+	  output += l
+	}  
+	} 
+        $("#varid").text(output) 	
+    }, "text");
+</script>
+
 Example 1: As Simple As It Gets
 ===============================
 It is possible to solve a simple diffusion problem with MOOSE without adding any source code, all that is necessary is an input file. This input file must contain a minimum set of input file blocks: Mesh, Variables, Kernels, BCs, Executioner, and Output.
@@ -17,6 +33,8 @@ First, you need a mesh. Here a mesh if being read from an ExodusII file named mu
 Variables Block
 ---------------
 The problem is going to solve for a variable that we arbitrarily are naming 'diffused'. This variable will be solved for using linear Lagrange finite elements.
+<pre><code id="varid"></code></pre>
+
 ```
 [Variables]
   active = 'diffused'
@@ -51,4 +69,4 @@ make -j8
 
 Input File: ex01.i
 ------------------
-Include entire file here
+<pre><code id="msgid"></code></pre>
