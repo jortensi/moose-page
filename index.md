@@ -3,9 +3,9 @@ MOOSE: Multiphysics Object Oriented Simulation Environment
 The Multiphysics Object-Oriented Simulation Environment (MOOSE) provides a high-level interface to some of the most sophisticated nonlinear solver technology on the planet. MOOSE provides a straightforward API that aligns well with the real-world problems scientists and engineers need to tackle. Every detail about how an engineer interacts with MOOSE has been thought through, from the installation process through running your simulation on state of the art supercomputers, the MOOSE system will accelerate your research.
 
 <script type="text/javascript">
-$(document).get("test/ex01.i", function(){
- $("#msgid").html(data);
-});
+$.get('test/ex01.i', function(data) {
+        alert(data);
+    }, "text");
 </script>
 
 <pre><code id="msgid"></code></pre>
@@ -25,5 +25,3 @@ Real-World Results
 The MOOSE simulation platform at has demonstrated the possibility of realistic modeling a full-core commercial nuclear reactor over multiple operating cycles. This simulation demonstrates the ability to couple several models together to simulate numerous physical properties on multiple size and time scales.
 
 [](http://www.youtube.com/watch?v=4xTfQxpGAI4)
-
-
